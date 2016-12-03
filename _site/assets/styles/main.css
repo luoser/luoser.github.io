@@ -33,11 +33,12 @@ html *{
   top:0;
   left:0;
   bottom:0;
+  text-align: center;
 }
 
 #sidebar_image{
-  margin-top:7%;
-  margin-bottom:7%;
+  margin-top:10%;
+  margin-bottom:10%;
 }
 
 #sidebar_name{
@@ -120,11 +121,20 @@ html *{
   padding:2%;
   text-align:right;
   border-bottom:3px dotted;
+  margin-bottom: 3%;
+}
+
+.descrip {
+  padding: 1%;
 }
 
 .media-row{
   padding:2%;
   text-align:center;
+}
+
+.media{
+  padding-bottom: 3%
 }
 
 .center-block{
