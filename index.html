@@ -2,3 +2,80 @@
 layout: default
 title: <@:)
 ---
+
+<!--Set up the Division Raster-->
+<div class='container-fluid'>
+  <div class='row'>
+    <div id='raster-img'>
+      <img src='/images/like-that.png' class='img-responsive' id='like-that' style='display:none'/>
+      <canvas id='myCanvas' style='width:100%;height:100%'></canvas>
+
+      <script type='text/paperscript' canvas='myCanvas'>
+
+          var doOnLoad = function() {
+            var raster = new Raster('like-that');
+      	    var loaded = false;
+
+            raster.on('load', function() {
+              loaded = true;
+              onResize();
+            });
+
+            raster.visible = false;
+
+            var lastPos = view.center;
+            function moveHandler(event) {
+              if (!loaded)
+                return;
+              if (lastPos.getDistance(event.point) < 10)
+                return;
+              lastPos = event.point;
+
+              var size = this.bounds.size.clone();
+              var isLandscape = size.width > size.height;
+
+              size /= isLandscape ? [2, 1] : [1, 2];
+
+              var path = new Path.Rectangle({
+                point: this.bounds.topLeft.floor(),
+                size: size.ceil(),
+                onMouseMove: moveHandler
+              });
+
+              path.fillColor = raster.getAverageColor(path);
+
+              var path = new Path.Rectangle({
+
+                point: isLandscape
+                ? this.bounds.topCenter.ceil()
+                : this.bounds.leftCenter.ceil(),
+                size: size.floor(),
+                onMouseMove: moveHandler
+              });
+
+              path.fillColor = raster.getAverageColor(path);
+
+              this.remove();
+            }
+
+            function onResize(event) {
+              if (!loaded)
+                return;
+              project.activeLayer.removeChildren();
+              raster.fitBounds(view.bounds, true);
+
+              console.log(view.bounds)
+
+              new Path.Rectangle({
+                rectangle: view.bounds,
+                fillColor: raster.getAverageColor(view.bounds),
+                onMouseMove: moveHandler
+              });
+            }
+          }
+          $(document).ready(doOnLoad);
+          $(window).bind('page:change', doOnLoad);
+      </script>
+    </div>
+  </div>
+</div>
