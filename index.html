@@ -1,1 +1,86 @@
-hello
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="/assets/styles/main.css" type="text/css">
+
+  <title><@:)</title>
+</head>
+
+<body>
+  <!--Design the sidebar for the application.-->
+  <div id='sidebar'>
+     <div id='sidebar_image'>
+       <img src='/assets/images/haskell.png' />
+     </div>
+
+     <div id='sidebar_name'>Lisa Luo</div>
+     <div class='sidebar_text'>hello friend</div>
+     <div id='sidebar_quote'>
+       welcome to my little world
+     </div>
+
+     <div id='sidebar_footer'>
+         <a target='_blank' href='http://blog.lisaluo.com/'>
+           <i class='icon-pen icon2x'></i>
+         </a>
+         <a target='_blank' href='https://twitter.com/luoser'>
+           <i class='icon-twitter icon2x'></i>
+         </a>
+         <a target='_blank' href='https://www.instagram.com/secretlovechildren/'>
+           <i class='icon-instagram icon2x'></i>
+         </a>
+         <a target='_blank' href='http://www.linkedin.com/pub/lisa-luo/36/770/4a'>
+           <i class='icon-linked_in icon2x'></i>
+         </a>
+         <a target='_blank' href='https://github.com/luoser'>
+           <i class='icon-git icon2x'></i>
+         </a>
+         <a target='_blank' href='https://soundcloud.com/luoser/sets/dawn-of-the-dulcimer'>
+           <i class='icon-soundcloud icon2x'></i>
+         </a>
+
+       <div id='copyright'>
+           webdesign by yours truly.
+       </div>
+     </div>
+  </div>
+
+  <!--Lay out the main page-->
+  <div class='container'>
+   <div class='mainpage'>
+     <div class='mainpage_tabs' align='center'>
+       <div class='col-md-4'><a href='{{site.baseurl}}'><port>Art</port></a></div>
+       <div class='col-md-4'><a href='projects'><proj>Technology</proj></a></div>
+       <div class='col-md-4'><a href='inspiration'><insp>Inspiration</insp></a></div>
+     </div>
+
+     <div class='content lazy'>
+       <%= yield %>
+     </div>
+
+   </div>
+  </div>
+
+  <script>
+   $('port').hover(function(){
+     $('port').css('background-color','#FFF599');
+     },function(){
+     $('port').css('background-color','white');
+   });
+
+   $('proj').hover(function(){
+     $('proj').css('background-color','#FFF599');
+     },function(){
+     $('proj').css('background-color','white');
+   });
+
+   $('insp').hover(function(){
+     $('insp').css('background-color','#FFF599');
+     },function(){
+     $('insp').css('background-color','white');
+   });
+  </script>
+</body>
+</html>
