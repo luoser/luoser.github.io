@@ -5,7 +5,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/main.css" type="text/css">
 
-  <title><@:)</title>
+  <title>lisa's internet home page</title>
 </head>
 
 <body>
@@ -51,13 +51,13 @@
   <div class='container'>
    <div class='mainpage'>
      <div class='mainpage_tabs' align='center'>
-       <div class='col-md-4'><a href='{{site.baseurl}}'><port>Art</port></a></div>
-       <div class='col-md-4'><a href='projects'><proj>Technology</proj></a></div>
-       <div class='col-md-4'><a href='inspiration'><insp>Inspiration</insp></a></div>
+       <div class='col-md-4'><a href='/art'><port>Art</port></a></div>
+       <div class='col-md-4'><a href='/technology'><proj>Technology</proj></a></div>
+       <div class='col-md-4'><a href='/inspiration'><insp>Inspiration</insp></a></div>
      </div>
 
      <div class='content lazy'>
-       <%= yield %>
+       
      </div>
 
    </div>
@@ -69,13 +69,11 @@
      },function(){
      $('port').css('background-color','white');
    });
-
    $('proj').hover(function(){
      $('proj').css('background-color','#FFF599');
      },function(){
      $('proj').css('background-color','white');
    });
-
    $('insp').hover(function(){
      $('insp').css('background-color','#FFF599');
      },function(){
